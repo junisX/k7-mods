@@ -12,7 +12,7 @@ import {
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-function Card({ project, index }: { project: Project; index: number }) {
+function Card({ project, index, wide }: { project: Project; index: number; wide?: boolean }) {
   return (
     <motion.article
       layout
@@ -20,9 +20,14 @@ function Card({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, ease, delay: Math.min(index * 0.06, 0.3) }}
-      className="card group flex flex-col overflow-hidden"
+      className={`card group flex flex-col overflow-hidden ${wide ? 'sm:col-span-2' : ''}`}
     >
-      <PixelCover seed={project.coverSeed} accent={project.accent} label={project.slug} />
+      <PixelCover
+        seed={project.coverSeed}
+        accent={project.accent}
+        label={project.slug}
+        icon={project.icon}
+      />
 
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center gap-3">
@@ -34,7 +39,7 @@ function Card({ project, index }: { project: Project; index: number }) {
           </span>
           <span className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-500">
             <Download size={12} />
-            {project.downloads}
+            {project.meta}
           </span>
         </div>
 
@@ -121,10 +126,12 @@ export default function Projects() {
 
         <motion.div
           layout
-          className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className={`mt-10 grid gap-6 ${
+            filtered.length === 1 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3'
+          }`}
         >
           {filtered.map((p, i) => (
-            <Card key={p.slug} project={p} index={i} />
+            <Card key={p.slug} project={p} index={i} wide={filtered.length === 1} />
           ))}
         </motion.div>
 

@@ -4,6 +4,8 @@ interface PixelCoverProps {
   seed: number;
   accent: string;
   label: string;
+  /** optionales Quadrat-Icon, wird mittig über das Muster gelegt */
+  icon?: string;
 }
 
 /** Deterministischer Pseudo-Zufall, damit das Muster pro Projekt stabil bleibt */
@@ -22,7 +24,7 @@ const COLS = 16;
 const ROWS = 9;
 
 /** Blocky, minimalistisches Cover — kein Bild-Asset nötig */
-export default function PixelCover({ seed, accent, label }: PixelCoverProps) {
+export default function PixelCover({ seed, accent, label, icon }: PixelCoverProps) {
   const blocks = useMemo(() => {
     const rnd = mulberry32(seed);
     const cells: { x: number; y: number; o: number }[] = [];
@@ -71,6 +73,15 @@ export default function PixelCover({ seed, accent, label }: PixelCoverProps) {
 
       {/* Abblendung nach unten, damit die Cards ruhig bleiben */}
       <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/25 to-transparent" />
+
+      {icon && (
+        <img
+          src={icon}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-2xl object-cover shadow-2xl shadow-black/60 ring-1 ring-white/15"
+        />
+      )}
 
       <span className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-pixel text-white/45">
         {label}

@@ -81,7 +81,7 @@ export default function Footer() {
             © {year} {site.name} — nicht mit Mojang/Microsoft verbunden.
           </p>
           <a
-            href={site.links.github}
+            href={site.links.website || site.links.github}
             target="_blank"
             rel="noreferrer noopener"
             className="inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors hover:text-grass"
