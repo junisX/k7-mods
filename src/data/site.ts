@@ -38,6 +38,8 @@ export interface Project {
   accent: string;
   /** optionales Quadrat-Icon (PNG-Import), erscheint mittig im Cover */
   icon?: string;
+  /** optionales Vorschaubild (Import) — ersetzt das Pixel-Muster komplett */
+  coverImage?: string;
   links: ProjectLink[];
 }
 
@@ -57,7 +59,7 @@ export const site = {
     discord: '',
   },
   stats: [
-    { value: '1', label: 'Projekt' },
+    { value: '2', label: 'Projekte' },
     { value: '1.21.11', label: 'Minecraft' },
     { value: 'Fabric', label: 'Modloader' },
     { value: 'MIT', label: 'Lizenz' },
@@ -99,6 +101,26 @@ export const projects: Project[] = [
         url: 'https://github.com/junisX/no-totem-pop-animation/releases/latest/download/no-totem-pop-animation-1.21.11-1.0.0.jar',
       },
       { label: 'GitHub', url: 'https://github.com/junisX/no-totem-pop-animation' },
+    ],
+  },
+  {
+    slug: 'infinitekr-auktion',
+    title: "InfiniteKR's Auktion",
+    category: 'mod',
+    short: 'Live-Auktion für Streams – direkt im Spiel.',
+    description:
+      'Client-seitige Fabric-Mod: liest die /pay-Einnahmen aus dem Chat und zeigt Item, Mindestgebot und Bieterliste in einem eigenen Fenster – mit Timer, Live-Balken und Buttons zum Beenden, Zurücksetzen und Bewerben.',
+    versions: ['1.21.11'],
+    loaders: ['Fabric'],
+    meta: 'v1.1.0 · 64,7 KB',
+    coverSeed: 6,
+    accent: '#3DDC84',
+    links: [
+      {
+        label: 'Download',
+        url: 'https://github.com/junisX/infinitekr-auktion/releases/download/v1.1.0/InfiniteKR-Auktion-1.21.11.jar',
+      },
+      { label: 'GitHub', url: 'https://github.com/junisX/infinitekr-auktion' },
     ],
   },
 ];

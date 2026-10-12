@@ -27,6 +27,7 @@ function Card({ project, index, wide }: { project: Project; index: number; wide?
         accent={project.accent}
         label={project.slug}
         icon={project.icon}
+        image={project.coverImage}
       />
 
       <div className="flex flex-1 flex-col p-6">

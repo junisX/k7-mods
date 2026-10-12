@@ -41,18 +41,21 @@ Ein neues Projekt einfach als Objekt anhängen:
   description: 'Längere Beschreibung …',
   versions: ['1.21.4'],
   loaders: ['Fabric'],
-  downloads: '1.2k',
+  meta: 'v1.0.0 · 8,3 KB',       // kleine Kennzahl neben dem Download-Icon
   coverSeed: 4,                  // 0–9, erzeugt das Pixel-Muster
   accent: '#66C93F',             // Farbe des Covers
+  icon: iconMeinMod,             // optional: quadratisches Icon (PNG-Import)
+  coverImage: coverScreenshot,   // optional: Screenshot statt Pixel-Muster
   links: [
-    { label: 'CurseForge', url: 'https://www.curseforge.com/minecraft/…' },
+    { label: 'Download', url: 'https://github.com/…/releases/download/…/mod.jar' },
+    { label: 'GitHub', url: 'https://github.com/…' },
   ],
 },
 ```
 
-Bilder werden nicht gebraucht – jedes Cover ist ein generiertes Pixel-Muster
-(`src/components/PixelCover.tsx`). Möchtest du echte Screenshots, ersetze die
-`PixelCover`-Komponente durch ein `<img>`.
+Bilder brauchst du nicht – ohne `coverImage` generiert `src/components/PixelCover.tsx`
+ein Pixel-Muster. Für einen Screenshot das Bild nach `src/assets/` legen, oben
+importieren und als `coverImage` eintragen (ideales Seitenverhältnis: ca. 16:9).
 
 ---
 

@@ -6,6 +6,8 @@ interface PixelCoverProps {
   label: string;
   /** optionales Quadrat-Icon, wird mittig über das Muster gelegt */
   icon?: string;
+  /** optionales Vorschaubild – ersetzt das Pixel-Muster */
+  image?: string;
 }
 
 /** Deterministischer Pseudo-Zufall, damit das Muster pro Projekt stabil bleibt */
@@ -24,7 +26,7 @@ const COLS = 16;
 const ROWS = 9;
 
 /** Blocky, minimalistisches Cover — kein Bild-Asset nötig */
-export default function PixelCover({ seed, accent, label, icon }: PixelCoverProps) {
+export default function PixelCover({ seed, accent, label, icon, image }: PixelCoverProps) {
   const blocks = useMemo(() => {
     const rnd = mulberry32(seed);
     const cells: { x: number; y: number; o: number }[] = [];
@@ -41,6 +43,14 @@ export default function PixelCover({ seed, accent, label, icon }: PixelCoverProp
 
   return (
     <div className="relative h-40 w-full overflow-hidden sm:h-44">
+      {image ? (
+        <img
+          src={image}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
       <svg
         viewBox={`0 0 ${COLS * 10} ${ROWS * 10}`}
         preserveAspectRatio="xMidYMid slice"
@@ -70,6 +80,7 @@ export default function PixelCover({ seed, accent, label, icon }: PixelCoverProp
         </defs>
         <rect width={COLS * 10} height={ROWS * 10} fill={`url(#g-${seed})`} />
       </svg>
+      )}
 
       {/* Abblendung nach unten, damit die Cards ruhig bleiben */}
       <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/25 to-transparent" />
