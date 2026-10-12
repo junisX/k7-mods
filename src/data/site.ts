@@ -13,7 +13,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-import iconNoTotemPopAnimation from '../assets/icon.png';
+import totemBanner from '../assets/totem-banner.jpg';
 
 export type Category = 'mod' | 'modpack' | 'plugin' | 'datapack';
 
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     meta: 'v1.0.0 · 8,3 KB',
     coverSeed: 4,
     accent: '#66C93F',
-    icon: iconNoTotemPopAnimation,
+    coverImage: totemBanner,
     links: [
       {
         label: 'Download',
