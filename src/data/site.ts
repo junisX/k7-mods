@@ -27,7 +27,6 @@ export interface Project {
   title: string;
   category: Category;
   short: string;
-  description: string;
   versions: string[];
   loaders: string[];
   /** kleine Kennzahl neben dem Download-Icon, z.B. "v1.0.0 · 8,3 KB" */
@@ -46,8 +45,6 @@ export interface Project {
 export const site = {
   name: 'K7 Mods',
   tagline: 'Minecraft-Projekte, sauber gebaut.',
-  description:
-    'Mods, Modpacks, Plugins und Datapacks für Minecraft — minimalistisch designt, stabil getestet und open source.',
   // ⬇️ Leere URL blendet den jeweiligen Button komplett aus
   links: {
     /** Mod-Quellcode */
@@ -87,8 +84,6 @@ export const projects: Project[] = [
     title: 'No Totem POP Animation',
     category: 'mod',
     short: 'Kein Vollbild-Totem mehr – Sound & Effekt bleiben.',
-    description:
-      'Client-seitige Fabric-Mod: entfernt die Vollbild-Animation und die eigenen Totem-Partikel beim Poppen. Totem-Sound, Heilung und Effekte bleiben erhalten – und die Partikel anderer Spieler siehst du weiterhin. Keine weiteren Abhängigkeiten nötig.',
     versions: ['1.21.11'],
     loaders: ['Fabric'],
     meta: 'v1.0.0 · 8,3 KB',
@@ -108,8 +103,6 @@ export const projects: Project[] = [
     title: "InfiniteKR's Auktion",
     category: 'mod',
     short: 'Live-Auktion für Streams – direkt im Spiel.',
-    description:
-      'Client-seitige Fabric-Mod: liest die /pay-Einnahmen aus dem Chat und zeigt Item, Mindestgebot und Bieterliste in einem eigenen Fenster – mit Timer, Live-Balken und Buttons zum Beenden, Zurücksetzen und Bewerben.',
     versions: ['1.21.11'],
     loaders: ['Fabric'],
     meta: 'v1.1.0 · 64,7 KB',

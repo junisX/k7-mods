@@ -48,9 +48,6 @@ function Card({ project, index, wide }: { project: Project; index: number; wide?
           {project.title}
         </h3>
         <p className="mt-1.5 text-sm font-medium text-zinc-400">{project.short}</p>
-        <p className="mt-3 text-[13px] leading-relaxed text-zinc-500">
-          {project.description}
-        </p>
 
         <div className="mt-5 flex flex-wrap gap-1.5">
           {[...project.loaders, ...project.versions.slice(0, 2)].map((t) => (
@@ -97,11 +94,8 @@ export default function Projects() {
           <div>
             <p className="eyebrow">// Projekte</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Alles, was ich gebaut habe
+              Downloads
             </h2>
-            <p className="mt-3 max-w-lg text-sm text-zinc-500">
-              Jedes Projekt ist kostenlos, upgedatet und läuft auf aktuellen Minecraft-Versionen.
-            </p>
           </div>
 
           <div className="flex flex-wrap gap-2">

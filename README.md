@@ -24,7 +24,7 @@ npm run preview # gebaute Version lokal ansehen
 
 | Was | Wo |
 | --- | --- |
-| Name / Slogan / Beschreibung | `site.name`, `site.tagline`, `site.description` |
+| Name / Slogan | `site.name`, `site.tagline` |
 | Deine Profile (CurseForge, GitHub …) | `site.links` |
 | Statistik-Zahlen im Hero | `site.stats` |
 | **Deine Projekte** | `array projects` |
@@ -38,7 +38,6 @@ Ein neues Projekt einfach als Objekt anhängen:
   title: 'Mein Mod',
   category: 'mod',               // 'mod' | 'modpack' | 'plugin' | 'datapack'
   short: 'Ein-Satz-Beschreibung.',
-  description: 'Längere Beschreibung …',
   versions: ['1.21.4'],
   loaders: ['Fabric'],
   meta: 'v1.0.0 · 8,3 KB',       // kleine Kennzahl neben dem Download-Icon
@@ -98,6 +97,5 @@ src/
     ├── Hero.tsx          Headline, CTA, Statistik
     ├── Projects.tsx      Filter + Karten-Grid
     ├── PixelCover.tsx    generiertes Pixel-Cover pro Projekt
-    ├── About.tsx         „Über“-Sektion
     └── Footer.tsx        Footer + externe Links
 ```

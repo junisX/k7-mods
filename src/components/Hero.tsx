@@ -31,15 +31,6 @@ export default function Hero() {
           <span className="block text-zinc-500">{site.tagline}</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease, delay: 0.14 }}
-          className="mt-6 max-w-xl text-[15px] leading-relaxed text-zinc-400"
-        >
-          {site.description}
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}

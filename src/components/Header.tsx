@@ -5,7 +5,6 @@ import { site } from '../data/site';
 
 const links = [
   { label: 'Projekte', href: '#projekte' },
-  { label: 'Über', href: '#ueber' },
   { label: 'Kontakt', href: '#kontakt' },
 ];
 

@@ -2,10 +2,7 @@ import { Github, Globe } from 'lucide-react';
 import Logo from './Logo';
 import { site } from '../data/site';
 
-const nav = [
-  { label: 'Projekte', href: '#projekte' },
-  { label: 'Über', href: '#ueber' },
-];
+const nav = [{ label: 'Projekte', href: '#projekte' }];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -29,9 +26,6 @@ export default function Footer() {
                 K7 <span className="text-grass">Mods</span>
               </span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
-              {site.tagline} Alle Projekte sind kostenlos und werden quelloffen entwickelt.
-            </p>
           </div>
 
           <div className="flex gap-14">
