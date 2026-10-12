@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-zinc-200 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-grass/30 text-white;
+  }
+
+  /* dezente Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #23272b transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #23272b;
+    border-radius: 999px;
+    border: 3px solid #08090a;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Mini-Label im Mono-Stil über den Sektionen */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-pixel text-grass;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-ink-900 transition-colors duration-300;
+  }
+
+  .card:hover {
+    @apply border-white/[0.14] bg-ink-850;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-grass/60;
+  }
+
+  .btn-primary {
+    @apply btn bg-grass text-ink-950 hover:bg-grass-soft;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-zinc-200 hover:border-white/20 hover:bg-white/[0.06];
+  }
+}
+
+/* zarte Punktraster-Hintergrund für Hero & Footer */
+.grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 35%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
