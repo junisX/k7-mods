@@ -13,8 +13,6 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-import iconNoTotemPopAnimation from '../assets/icon.png';
-
 export type Category = 'mod' | 'modpack' | 'plugin' | 'datapack';
 
 export interface ProjectLink {
@@ -89,7 +87,6 @@ export const projects: Project[] = [
     meta: 'v1.0.0 · 8,3 KB',
     coverSeed: 4,
     accent: '#66C93F',
-    icon: iconNoTotemPopAnimation,
     links: [
       {
         label: 'Download',
