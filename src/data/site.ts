@@ -5,8 +5,8 @@
  *  Hier änderst du alles Wichtigste:
  *   • site.name / site.tagline  → Name & Slogan
  *   • site.links                → deine echten Profile (leere URL = Button aus)
- *   • site.stats                → Kennzahlen im Hero
  *   • projects[]                → deine Minecraft-Projekte
+ *   • stats                     → Hero-Kennzahlen (rechnet sich selbst aus)
  *
  *  Neues Projekt: Objekt in `projects` kopieren und anpassen.
  *  Danach: `npm run dev` zum Testen, `npm run build` für den Production-Build.
@@ -53,12 +53,6 @@ export const site = {
     modrinth: '',
     discord: '',
   },
-  stats: [
-    { value: '2', label: 'Projekte' },
-    { value: '1.21.11', label: 'Minecraft' },
-    { value: 'Fabric', label: 'Modloader' },
-    { value: 'Kostenlos', label: 'Download' },
-  ],
 };
 
 export const categoryLabels: Record<Category, string> = {
@@ -105,4 +99,27 @@ export const projects: Project[] = [
       { label: 'GitHub', url: 'https://github.com/junisX/infinitekr-auktion' },
     ],
   },
+];
+
+/* ── Hero-Kennzahlen: ergeben sich automatisch aus `projects` ─────────────── */
+
+/** vergleicht Versionsnummern wie "1.21.11" > "1.21.4" */
+function cmpVersion(a: string, b: string): number {
+  const pa = a.split(/[.\-+]/).map((n) => parseInt(n, 10) || 0);
+  const pb = b.split(/[.\-+]/).map((n) => parseInt(n, 10) || 0);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+    const d = (pa[i] ?? 0) - (pb[i] ?? 0);
+    if (d !== 0) return d;
+  }
+  return 0;
+}
+
+const versions = [...new Set(projects.flatMap((p) => p.versions))].sort(cmpVersion);
+const loaders = [...new Set(projects.flatMap((p) => p.loaders))];
+
+export const stats = [
+  { value: String(projects.length), label: 'Projekte' },
+  { value: versions.length ? versions[versions.length - 1] : '—', label: 'Minecraft' },
+  { value: loaders.length <= 2 ? loaders.join(' + ') : `${loaders.length} Loader`, label: 'Modloader' },
+  { value: 'Kostenlos', label: 'Download' },
 ];

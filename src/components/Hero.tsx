@@ -1,5 +1,5 @@
 import { ArrowDown, Github } from 'lucide-react';
-import { site } from '../data/site';
+import { site, stats } from '../data/site';
 
 export default function Hero() {
   return (
@@ -47,7 +47,7 @@ export default function Hero() {
           className="rise mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.05] sm:grid-cols-4"
           style={{ animationDelay: '320ms' }}
         >
-          {site.stats.map((s) => (
+          {stats.map((s) => (
             <div key={s.label} className="bg-ink-900 px-5 py-5">
               <dt className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
                 {s.label}

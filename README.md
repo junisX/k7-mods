@@ -28,7 +28,7 @@ npm run preview # gebaute Version lokal ansehen
 | --- | --- |
 | Name / Slogan | `site.name`, `site.tagline` |
 | Deine Profile (CurseForge, GitHub …) | `site.links` |
-| Statistik-Zahlen im Hero | `site.stats` |
+| Statistik-Zahlen im Hero | `stats` (rechnet `projects` automatisch aus) |
 | **Deine Projekte** | `array projects` |
 | Farben (Akzentgrün, Flächen) | `tailwind.config.js` → `colors` |
 
