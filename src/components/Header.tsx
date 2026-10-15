@@ -35,7 +35,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
           {links.map((l) => (
             <a
               key={l.href}
@@ -61,15 +61,20 @@ export default function Header() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           className="rounded-lg p-2 text-zinc-300 transition-colors hover:bg-white/5 md:hidden"
-          aria-label="Menü öffnen"
+          aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-white/[0.07] bg-ink-950/95 backdrop-blur-xl md:hidden">
+        <nav
+          id="mobile-nav"
+          aria-label="Hauptnavigation (mobil)"
+          className="border-t border-white/[0.07] bg-ink-950/95 backdrop-blur-xl md:hidden"
+        >
           <div className="container-x flex flex-col gap-1 py-4">
             {links.map((l) => (
               <a
@@ -92,7 +97,7 @@ export default function Header() {
               </a>
             )}
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

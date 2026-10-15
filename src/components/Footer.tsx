@@ -30,7 +30,7 @@ export default function Footer() {
 
           <div className="flex gap-14">
             <div>
-              <h4 className="font-mono text-[11px] uppercase tracking-pixel text-zinc-500">
+              <h4 className="font-mono text-[11px] uppercase tracking-pixel text-zinc-400">
                 Seite
               </h4>
               <ul className="mt-4 space-y-2.5">
@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-mono text-[11px] uppercase tracking-pixel text-zinc-500">
+              <h4 className="font-mono text-[11px] uppercase tracking-pixel text-zinc-400">
                 Extern
               </h4>
               <ul className="mt-4 space-y-2.5">
@@ -71,14 +71,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/[0.06] pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[11px] text-zinc-600">
+          <p className="font-mono text-[11px] text-zinc-400">
             © {year} {site.name} — nicht mit Mojang/Microsoft verbunden.
           </p>
           <a
             href={site.links.website || site.links.github}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors hover:text-grass"
+            className="inline-flex items-center gap-2 text-xs text-zinc-400 transition-colors hover:text-grass"
           >
             <Github size={14} />
             Diese Seite auf GitHub

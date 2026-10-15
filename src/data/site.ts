@@ -57,17 +57,9 @@ export const site = {
     { value: '2', label: 'Projekte' },
     { value: '1.21.11', label: 'Minecraft' },
     { value: 'Fabric', label: 'Modloader' },
-    { value: 'MIT', label: 'Lizenz' },
+    { value: 'Kostenlos', label: 'Download' },
   ],
 };
-
-export const categories: { id: Category | 'all'; label: string }[] = [
-  { id: 'all', label: 'Alle' },
-  { id: 'mod', label: 'Mods' },
-  { id: 'modpack', label: 'Modpacks' },
-  { id: 'plugin', label: 'Plugins' },
-  { id: 'datapack', label: 'Datapacks' },
-];
 
 export const categoryLabels: Record<Category, string> = {
   mod: 'Mod',

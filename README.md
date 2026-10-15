@@ -1,9 +1,11 @@
-# K7 Mods — Minecraft-Projekte
+# K7 Mods — Minecraft-Mods
 
-Dunkle, minimalistische One-Pager-Website zur Präsentation deiner Minecraft-Projekte
-(Mods, Modpacks, Plugins, Datapacks) mit Links zu CurseForge, Modrinth & GitHub.
+Dunkle, minimalistische One-Pager-Seite mit direkten **Download-Buttons** für deine
+Minecraft-Mods (aktuell: No Totem POP Animation, InfiniteKR's Auktion).
 
-**Stack:** React 19 · Vite 6 · TypeScript · Tailwind CSS · Framer Motion · lucide-react
+**Stack:** React 19 · Vite 6 · TypeScript · Tailwind CSS · lucide-react
+**Ohne** Framework-Ballast: Animations-Einblendungen laufen über CSS + IntersectionObserver
+(JS-Bundle ~75 KB gzip), SEO-, A11y- und Reduced-Motion-Basics sind eingebaut.
 
 ---
 
@@ -87,15 +89,30 @@ domain* eintragen, DNS auf `/<REPO>` oder CNAME zeigen.
 ## Struktur
 
 ```
-index.html                Einstieg, Fonts, Favicon
+index.html                Meta/SEO/OG, Fonts, JSON-LD, Favicon
+public/
+├── robots.txt            Crawler-Hinweise + Sitemap-Referenz
+├── sitemap.xml           Sitemap
+└── 404.html              leitet auf die Startseite um
 src/
-├── App.tsx               Seitenzusammenbau
-├── data/site.ts          ⬅ alle Inhalte (Projekte, Links, Texte)
-├── index.css             Tailwind-Basis, Utilities (.card, .btn, .eyebrow)
+├── App.tsx               Seitenzusammenbau + Skip-Link
+├── data/site.ts          ⬅ alle Inhalte (Projekte, Links, Zahlen)
+├── index.css             Tailwind-Basis, Utilities, Einblend-Animationen
 └── components/
     ├── Header.tsx        sticky Navigation + Mobile-Menü
     ├── Hero.tsx          Headline, CTA, Statistik
-    ├── Projects.tsx      Filter + Karten-Grid
-    ├── PixelCover.tsx    generiertes Pixel-Cover pro Projekt
+    ├── Projects.tsx      automatische Filter + Karten-Grid
+    ├── Reveal.tsx        Einblenden beim Scrollen (CSS/IO)
+    ├── PixelCover.tsx    generiertes Pixel-Cover bzw. Bild
     └── Footer.tsx        Footer + externe Links
 ```
+
+### Was eingebaut ist
+
+- **Download zuerst:** pro Karte ein grüner Download-Button, Rest dezent
+- **Filter automatisch:** nur Kategorien mit echten Projekten, mit Anzahl
+- **SEO:** Description, Open Graph, Twitter Card, Canonical, `robots.txt`,
+  `sitemap.xml`, JSON-LD (`WebSite` + `SoftwareApplication`)
+- **A11y:** Kontrast-WCAG-geprüft, Skip-Link, `aria-*`, Tastatur-Focus,
+  `prefers-reduced-motion` respektiert
+- **Performance:** ~75 KB JS gzip, nur lokal gehostete Assets, gehashte Dateinamen

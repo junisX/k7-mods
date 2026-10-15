@@ -48,13 +48,13 @@ export default function PixelCover({ seed, accent, label, icon, image }: PixelCo
           src={image}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
       ) : (
       <svg
         viewBox={`0 0 ${COLS * 10} ${ROWS * 10}`}
         preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
         aria-hidden="true"
       >
         <rect width={COLS * 10} height={ROWS * 10} fill="#0A0C0E" />
@@ -94,7 +94,7 @@ export default function PixelCover({ seed, accent, label, icon, image }: PixelCo
         />
       )}
 
-      <span className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-pixel text-white/45">
+      <span className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-pixel text-white/70">
         {label}
       </span>
     </div>

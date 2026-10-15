@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://junisx.github.io/k7-mods/sitemap.xml
